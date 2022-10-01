@@ -90,6 +90,7 @@
       v-if="showSidebar" 
       :toggle="toggeleSidebar" 
       :cart="cart"
+      :inventory="inventory"
       />
       
       <footer>
@@ -127,7 +128,7 @@
     },
     })
     app.component('sidebar',{
-      props:['toggle','cart'],
+      props:['toggle','cart','inventory'],
       computed:{
         cartTotal(){
           return (this.cart.carrots *4.82).toFixed(2)
@@ -156,9 +157,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr v-for="(quantity, key,i) in cart" :key="i">
                   <td><i class="icofont-carrot icofont-3x"></i></td>
-                  <td>Carrot</td>
+                  <td>{{key}}</td>
                   <td>$4.82</td>
                   <td class="center">{{cart.carrots}}</td>
                   <td>\${{cart.carrots * 4.82}}</td>
