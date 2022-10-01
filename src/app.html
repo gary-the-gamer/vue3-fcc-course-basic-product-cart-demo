@@ -111,7 +111,6 @@
       methods:{
         addToCart(name , index){
           //receive type and number
-          console.log(name,index)
          if (!this.cart[name]) this.cart[name] = 0
           this.cart[name] += this.inventory[index].quantity
           console.log(this.cart)
